@@ -105,6 +105,22 @@ function greetUser(name) {
 greetUser('Alice');
 greetUser('');
 
+
+let react = true
+let node = true
+let db = false
+
+react ?
+  (node ?
+    (
+      db ?
+        "you get a job"
+        : console.log("no db")
+    )
+    : console.log("no node")
+  )
+  : console.log("no job")
+
 // ---------------------- Conclusion ----------------------
 // Control flow lets us build logic and make decisions based on data or conditions.
 // Start with `if`, then scale to `else if`, `else`, `switch`, and ternary when needed.

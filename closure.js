@@ -44,6 +44,7 @@ counter(); // Output: 1
 counter(); // Output: 2
 counter(); // Output: 3
 
+
 console.log(
     counter().count)
 
@@ -92,3 +93,8 @@ console.log(triple(5)); // Output: 15
 // - Inner functions "remember" variables from outer functions
 // - Closure is created when a function is returned or passed from inside another function
 // - Useful for creating private state, avoiding global variables, or building functional patterns
+
+
+
+
+//use case
