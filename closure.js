@@ -95,6 +95,162 @@ console.log(triple(5)); // Output: 15
 // - Useful for creating private state, avoiding global variables, or building functional patterns
 
 
+//********************************************************** */
+//CURRYING
+//CURRYING
+//CURRYING
+//********************************************************** */
+
+// 🔥 What is Currying?
+// Currying is a process in functional programming where a function with multiple arguments
+// is transformed into a sequence of functions, each taking a single argument.
+
+// 🧠 Why Use Currying?
+// - Makes code reusable and modular
+// - Useful in function composition
+// - Cleaner and more readable logic
+
+// 💡 Example without currying:
+function addNormal(a, b) {
+    return a + b;
+  }
+  console.log(addNormal(2, 3)); // Output: 5
+  
+  // ✅ Same function with currying:
+  function addCurried(a) {
+    return function(b) {
+      return a + b;
+    };
+  }
+  console.log(addCurried(2)(3)); // Output: 5
+  
+  // 👆 What happens here:
+  // - addCurried(2) returns a function: function(b) { return 2 + b }
+  // - Then we call that function with (3), so it becomes 2 + 3
+  
+  // 🛠️ More Practical Example: Greeting Function
+  function greet(greeting) {
+    return function(name) {
+      return `${greeting}, ${name}!`;
+    };
+  }
+  const sayHello = greet("Hello");
+  console.log(sayHello("Alice")); // Hello, Alice!
+  console.log(sayHello("Bob"));   // Hello, Bob!
+  
+  // 👇 sayHello is a curried function with "Hello" already provided
+  // We just reuse it for different names
+  
+  // 💪 Currying using ES6 Arrow Functions
+  const multiply = a => b => a * b;
+  console.log(multiply(2)(5)); // Output: 10
+  
+  // ⚠️ Note:
+  // - Currying transforms a multi-arg function into a series of 1-arg functions
+  // - It is not the same as Partial Application
+  // - Partial Application means pre-filling some arguments, but doesn’t require all functions to be unary
+  
+  // ✅ Summary:
+  // - Currying breaks a function into smaller one-argument functions
+  // - It’s powerful for code reuse and functional patterns
+  // - Can be written using regular or arrow functions
+  
+//********************************************************** */
+  //call, apply, and bind
+  //call, apply, and bind
+  //call, apply, and bind
+//********************************************************** */
 
 
-//use case
+  // 🔥 What are call, apply, and bind?
+// These are JavaScript methods used to control the value of `this` inside functions.
+
+// JavaScript functions are first-class objects, and they come with some built-in methods:
+// - call()
+// - apply()
+// - bind()
+
+// Let's create an example object:
+const person = {
+    name: "Alice",
+    greet: function(city, country) {
+      console.log(`Hi, I'm ${this.name} from ${city}, ${country}`);
+    }
+  };
+  
+  // ------------------------------------------------------------
+  // 🧠 call()
+  // Immediately invokes the function with a specified `this` value and arguments passed one by one
+  
+  // Syntax: func.call(thisArg, arg1, arg2, ...)
+  
+  person.greet("Delhi", "India"); 
+  // Output: Hi, I'm Alice from Delhi, India
+  
+  const person2 = { name: "Bob" };
+  person.greet.call(person2, "Paris", "France"); 
+  // Output: Hi, I'm Bob from Paris, France
+  
+  // ------------------------------------------------------------
+  // 🧠 apply()
+  // Same as call(), but arguments are passed as an array
+  
+  // Syntax: func.apply(thisArg, [arg1, arg2, ...])
+  
+  person.greet.apply(person2, ["Berlin", "Germany"]); 
+  // Output: Hi, I'm Bob from Berlin, Germany
+  
+  // ------------------------------------------------------------
+  // 🧠 bind()
+  // Returns a new function with the specified `this` value and optional preset arguments.
+  // It does NOT invoke the function immediately.
+  
+  // Syntax: const newFunc = func.bind(thisArg, arg1, arg2, ...)
+  
+  const greetBob = person.greet.bind(person2, "Tokyo", "Japan");
+  
+  greetBob(); 
+  // Output: Hi, I'm Bob from Tokyo, Japan
+  
+  // ------------------------------------------------------------
+  // 🧪 Summary Differences:
+  
+  // call():
+  // - Invokes the function immediately
+  // - Pass arguments one by one
+  
+  // apply():
+  // - Invokes the function immediately
+  // - Pass arguments as an array
+  
+  // bind():
+  // - Returns a new function
+  // - Use it later with the given `this` and preset args
+  
+  // ------------------------------------------------------------
+  // 💡 Real-world usage example: Borrowing a method
+  
+  const calculator = {
+    total: 0,
+    add(a) {
+      this.total += a;
+      return this.total;
+    }
+  };
+  
+  const calc2 = { total: 10 };
+  
+  // Use add() method from calculator for calc2 using call
+  console.log(calculator.add.call(calc2, 5)); // 15
+  
+  // Use bind to create a reusable function for calc2
+  const addToCalc2 = calculator.add.bind(calc2);
+  console.log(addToCalc2(10)); // 25
+  
+  // calc2.total is now updated to 25
+  
+  // ------------------------------------------------------------
+  // ✅ Final Tip:
+  // Use call/apply when you want to change context and invoke immediately
+  // Use bind when you want to change context but call the function later
+  

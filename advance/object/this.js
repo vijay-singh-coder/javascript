@@ -1,4 +1,3 @@
-
 //case 1
 // console.log(this)  //window
 
