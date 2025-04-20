@@ -64,6 +64,42 @@ mixin(programmer, canEat, canWalk, canCode);
 
 console.log(programmer);  // Shows the programmer with all added behaviors
 programmer.eat();        // Calls the eat method from canEat
-programmer.walk();       // Calls the walk method from canWalk
+programmer.walk();       // Calls the walk method from canWalk/ ------------------ Lesson: Constructor Functions vs ES6 Classes ------------------
+
+
+
+
+
+
+//*************************************
+//*************************************
+//*************************************
+//*************************************
+// Constructor functions were used in JavaScript before ES6 to create objects with shared properties and methods.
+// They are function-based and not as structured as ES6 classes.
+function ProgrammerFunc(name, preferredLanguage) {
+    this.name = name;
+    this.preferredLanguage = preferredLanguage;
+
+    this.code = function() {
+        console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
+    }
+}
+
+// ES6 Classes provide a more structured and object-oriented approach to creating objects.
+// Classes have a constructor method and can also define methods for instances of the class.
+class Programmer {
+    constructor(name, preferredLanguage) {
+        this.name = name;
+        this.preferredLanguage = preferredLanguage;
+    }
+
+    code() {
+        console.log(`${this.name} is coding in ${this.preferredLanguage}.`);
+    }
+}
 programmer.code();       // Calls the code method from canCode
+
+
+
 

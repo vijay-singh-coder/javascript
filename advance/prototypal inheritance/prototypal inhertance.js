@@ -1,5 +1,5 @@
 // =====================
-// Constructor Functions & Prototypal Inheritance
+// Constructor Functions & Prototypal Inheritance|
 // =====================
 
 // 1. A Constructor Function is used to create objects with shared properties and methods.
@@ -16,7 +16,8 @@ Programmer.prototype.code = function () {
 
 
 let program = new Programmer("vijay")
-let program1 = new Programmer("somanath")
+let program1 = new Programmer("vijays")
+program.code()
 
 // =====================
 // Creating child constructors - FrontEndProgrammer and BackEndProgrammer
