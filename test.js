@@ -15,11 +15,9 @@
 
 // // console.log(s1.constructor); // ❌ [Function: Person]
 
-
 // // const s4 = new s1.constructor("David", "C");
 // // console.log(s4.name);   // ✅ David
 // // console.log(s4.grade);  // ❌ undefined
-
 
 // class Programmer {
 //     constructor(name) {
@@ -44,8 +42,7 @@
 // }
 
 // const steven = new FrontEndProgrammer('Steven');
-// steven.work(); 
-
+// steven.work();
 
 //cache
 // function sum(num1, num2) {
@@ -80,11 +77,9 @@
 //     console.log(value, index, array)
 // })
 
-
 // Array.prototype.myConcat = function (arr) {
 //     return [...this, ...arr]
 // }
-
 
 // let res = arr.myConcat(arr1)
 // console.log(res)
@@ -111,8 +106,7 @@
 //     return value > 10;
 // });
 
-// console.log(res1); 
-
+// console.log(res1);
 
 // console.log("👋 Chaiwala opens shop");
 
@@ -145,7 +139,6 @@
 //     }
 // }
 
-
 // class ProgrammerUsingGettersAndSetters {
 //     #language;
 
@@ -163,7 +156,6 @@
 //         this.#language = newLanguage;
 //     }
 // }
-
 
 // const programmer3 = new ProgrammerUsingGettersAndSetters('Steven', 'JavaScript');
 // console.log(programmer3.language); // Outputs: JavaScript
@@ -194,7 +186,6 @@
 
 // const steven = new FrontEndProgrammer('Steven kumar');
 // steven.worked();
-
 
 // const _language = Symbol();
 
@@ -228,11 +219,7 @@
 // deepCopy.address.city = "Mumbai";
 
 // console.log(original.skills);        // ["Go", "Rust"] ✅ Unchanged
-// console.log(original.address.city);  // "Delhi" 
-
-
-
-
+// console.log(original.address.city);  // "Delhi"
 
 // let arr = [1, 2, 3, 4, 5]
 // let arr = [1, 2, 3]
@@ -246,7 +233,6 @@
 //     for (let index = 0; index < this.length; index++) {
 //         cb(this[index], index, this)
 //     }
-
 
 // }
 
@@ -264,11 +250,9 @@
 //     console.log(value, index, array)
 // })
 
-
 // Array.prototype.myConcat = function (arr) {
 //     return [...this, ...arr]
 // }
-
 
 // let res = arr.myConcat(arr1)
 // console.log(res)
@@ -295,7 +279,7 @@
 //     return value > 10;
 // });
 
-// console.log(res1); 
+// console.log(res1);
 
 // Array
 // let arr = [1, 2, 3]
@@ -314,7 +298,6 @@
 //     console.log(value, index, array)
 // })
 
-
 // const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         // resolve('Promise resolved!');
@@ -328,7 +311,6 @@
 //     console.log("this error come from reject", error);
 // });
 
-
 // function databaseCall() {
 //     //logic1
 //     //logic2
@@ -336,9 +318,6 @@
 //     //logic4
 
 // }
-
-
-
 
 // console.log('1');
 
@@ -369,7 +348,6 @@
 
 // console.log('9');
 
-
 //output
 // 1
 // 5
@@ -381,59 +359,42 @@
 // 2
 // 3
 
+console.log('A');
 
+setTimeout(() => {
+    console.log('B');
+}, 0);
 
+Promise.resolve().then(() => {
+    console.log('C');
 
-// console.log('A');
+    setTimeout(() => {
+        console.log('D');
+    }, 0);
 
-// setTimeout(() => {
-//     console.log('B');
-// }, 0);
+    Promise.resolve().then(() => {
+        console.log('E');
+    });
+});
 
-// Promise.resolve().then(() => {
-//     console.log('C');
+(async function () {
+    console.log('F');
+    await null;
+    console.log('G');
+})();
 
-//     setTimeout(() => {
-//         console.log('D');
-//     }, 0);
-
-//     Promise.resolve().then(() => {
-//         console.log('E');
-//     });
-// });
-
-// (async function () {
-//     console.log('F');
-//     await null;
-//     console.log('G');
-// })();
-
-// console.log('H');
-
-//a f h c e g d b
-
-// A
-// F
-// H
-
-// C
-// G
-// E
-// B
-// D
+console.log('H');
 
 
 // [1, 2, 3].forEach((value, index) => {
 //     console.log(index, value);
 // });
 
-
 // [1, 2, 3].myForEach((value, index) => {
 //     console.log(index, value);
 // });
 
-
-/* 
+/*
 🔰 Level 1 — Basic Constructor Practice
 
 1️⃣ Create a Car constructor:
@@ -512,10 +473,63 @@
     - Method: check(password) → returns true if matches
 */
 
+// console.log('A');
 
+// setTimeout(() => {
+//     console.log('B');
+// }, 0);
 
+// Promise.resolve().then(() => {
+//     console.log('C');
 
+//     setTimeout(() => {
+//         console.log('D');
+//     }, 0);
 
+//     Promise.resolve().then(() => {
+//         console.log('E');
+//     });
+// });
 
+// (async function () {
+//     console.log('F');
+//     await null;
+//     console.log('G');
+// })();
+
+// console.log('H');
+
+// console.log('1');
+
+// setTimeout(() => {
+//     console.log('2');
+// }, 0);
+
+// Promise.resolve().then(() => {
+//     console.log('3');
+// });
+
+// queueMicrotask(() => {
+//     console.log('4');
+// });
+
+// setTimeout(() => {
+//     Promise.resolve().then(() => {
+//         console.log('5');
+//     });
+// }, 0);
+
+// console.log('6');
+
+// let rsult = new Promise((resolve, reject) => {
+//     resolve("hi");
+// });
+
+// rsult
+//     .then((result) => {
+//         console.log(result);
+//         return result;
+//     })
+//     .then((greet) => console.log(greet + " vijay"));
 
 
